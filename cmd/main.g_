@@ -1,0 +1,149 @@
+package main
+
+import (
+	"encoding/json"
+	"fmt"
+	"io"
+	"log"
+	"os"
+	"os/signal"
+	"syscall"
+	"time"
+
+	"github.com/fatih/color"
+	"github.com/fsnotify/fsnotify"
+	"github.com/inancgumus/screen"
+	"golang.org/x/sys/unix"
+)
+
+// Declare a file lock variable
+var fileLock unix.Flock_t
+
+func main() {
+	fileName := "your_file.json" // Replace with your JSON file's name
+	go watchFile(fileName)
+	go handleInterrupt()
+
+	// Keep the program running
+	select {}
+}
+
+func watchFile(fileName string) {
+	watcher, err := fsnotify.NewWatcher()
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer watcher.Close()
+
+	if err := watcher.Add(fileName); err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Printf("Watching changes in %s...\n", fileName)
+
+	for {
+		select {
+		case event, ok := <-watcher.Events:
+			if !ok {
+				return
+			}
+			if event.Op&fsnotify.Write == fsnotify.Write {
+				fmt.Println("File modified:")
+				if err := readAndPrintJSON(fileName); err != nil {
+					log.Println("Error reading and printing JSON:", err)
+				}
+			}
+		case err, ok := <-watcher.Errors:
+			if !ok {
+				return
+			}
+			log.Println("Error:", err)
+		}
+	}
+}
+
+func readAndPrintJSON(fileName string) error {
+	// Attempt to open the file with read-only mode and create a lock
+	file, err := os.OpenFile(fileName, os.O_RDONLY, 0644)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	// Initialize the file lock
+	fileLock = unix.Flock_t{
+		Type:   unix.F_RDLCK, // Read lock
+		Whence: 0,
+		Start:  0,
+		Len:    0, // Lock the entire file
+		Pid:    int32(os.Getpid()),
+	}
+
+	// Attempt to acquire the read lock
+	if err := unix.FcntlFlock(file.Fd(), unix.F_SETLK, &fileLock); err != nil {
+		return err
+	}
+	defer unix.FcntlFlock(file.Fd(), unix.F_UNLCK, &fileLock)
+
+	// Now you can safely read the file
+	fileContent, err := io.ReadAll(file)
+	if err != nil {
+		return err
+	}
+
+	var data interface{}
+	time.Sleep(1 * time.Second)
+	if err := json.Unmarshal(fileContent, &data); err != nil {
+		log.Fatal(err)
+		return err
+	}
+
+	formattedJSON, err := json.MarshalIndent(data, "", "  ")
+	if err != nil {
+		return err
+	}
+
+	// Define color attributes
+	keyColor := color.New(color.FgGreen)
+	valueColor := color.New(color.FgBlue)
+	bracketColor := color.New(color.FgYellow)
+
+	var coloredJSON string
+
+	inString := false
+	for _, char := range string(formattedJSON) {
+		switch char {
+		case '"':
+			inString = !inString
+			if inString {
+				coloredJSON += keyColor.Sprint(string(char))
+			} else {
+				coloredJSON += bracketColor.Sprint(string(char))
+			}
+		case ':':
+			coloredJSON += bracketColor.Sprint(string(char))
+		case '[', ']', '{', '}':
+			coloredJSON += bracketColor.Sprint(string(char))
+		default:
+			if inString {
+				coloredJSON += valueColor.Sprint(string(char))
+			} else {
+				coloredJSON += string(char)
+			}
+		}
+	}
+	// Clear the screen before printing
+	screen.Clear()
+	screen.MoveTopLeft()
+
+	fmt.Println(coloredJSON)
+	return nil
+}
+
+func handleInterrupt() {
+	c := make(chan os.Signal, 1)
+	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
+	<-c
+	fmt.Println("\nStopping...")
+	os.Exit(0)
+}

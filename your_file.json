@@ -1,0 +1,1604 @@
+{
+  "entity": {
+    "idEntity": 10,
+    "entityType": 0,
+    "tenant": "taba_amms_ops",
+    "name": "inlistentry",
+    "description": null,
+    "deleteFlag": false,
+    "pseudoDef": null,
+    "initData": null,
+    "fields": [
+      {
+        "name": "idInListEntry",
+        "type": {
+          "typeName": "int",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "PRI",
+        "max": 0,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": false,
+        "description": ""
+      },
+      {
+        "name": "idOpHeader",
+        "type": {
+          "typeName": "int",
+          "fkTenant": "taba_amms_ops",
+          "fkEntity": "opheader",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "MUL",
+        "max": 0,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": false,
+        "description": ""
+      },
+      {
+        "name": "idTicket",
+        "type": {
+          "typeName": "int",
+          "fkTenant": "taba_amms_ops",
+          "fkEntity": "ticket",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "MUL",
+        "max": 0,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": true,
+        "description": ""
+      },
+      {
+        "name": "listSrn",
+        "type": {
+          "typeName": "int",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 0,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": true,
+        "description": ""
+      },
+      {
+        "name": "passportNo",
+        "type": {
+          "typeName": "varchar",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 20,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": true,
+        "description": ""
+      },
+      {
+        "name": "idAGHeaderEg",
+        "type": {
+          "typeName": "int",
+          "fkTenant": "taba_amms_ops",
+          "fkEntity": "agheader",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "MUL",
+        "max": 0,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": false,
+        "description": ""
+      },
+      {
+        "name": "idAGHeaderJr",
+        "type": {
+          "typeName": "int",
+          "fkTenant": "taba_amms_ops",
+          "fkEntity": "agheader",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "MUL",
+        "max": 0,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": true,
+        "description": ""
+      },
+      {
+        "name": "agNameJr",
+        "type": {
+          "typeName": "varchar",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 45,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": false,
+        "description": ""
+      },
+      {
+        "name": "fName",
+        "type": {
+          "typeName": "varchar",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 45,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": false,
+        "description": ""
+      },
+      {
+        "name": "lName",
+        "type": {
+          "typeName": "varchar",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 45,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": false,
+        "description": ""
+      },
+      {
+        "name": "country",
+        "type": {
+          "typeName": "varchar",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 60,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": false,
+        "description": ""
+      },
+      {
+        "name": "dob",
+        "type": {
+          "typeName": "date",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 0,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": true,
+        "description": ""
+      },
+      {
+        "name": "age",
+        "type": {
+          "typeName": "int",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 0,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": true,
+        "description": ""
+      },
+      {
+        "name": "passportExp",
+        "type": {
+          "typeName": "date",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 0,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": true,
+        "description": ""
+      },
+      {
+        "name": "hotel",
+        "type": {
+          "typeName": "varchar",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 60,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": true,
+        "description": ""
+      },
+      {
+        "name": "isPropHotel",
+        "type": {
+          "typeName": "tinyint",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 0,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": false,
+        "description": ""
+      },
+      {
+        "name": "isExempted",
+        "type": {
+          "typeName": "tinyint",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 0,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": true,
+        "description": ""
+      },
+      {
+        "name": "returnDate",
+        "type": {
+          "typeName": "date",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 0,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": true,
+        "description": ""
+      },
+      {
+        "name": "remarks",
+        "type": {
+          "typeName": "varchar",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 256,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": true,
+        "description": ""
+      },
+      {
+        "name": "isRoundRip",
+        "type": {
+          "typeName": "tinyint",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 0,
+        "min": 0,
+        "default": "0",
+        "isUnique": false,
+        "isOptional": false,
+        "description": ""
+      }
+    ],
+    "createStmt": "CREATE TABLE `inlistentry` (  `idInListEntry` int NOT NULL AUTO_INCREMENT,  `idOpHeader` int NOT NULL,  `idTicket` int DEFAULT NULL,  `listSrn` int DEFAULT NULL,  `passportNo` varchar(20) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin DEFAULT NULL,  `idAGHeaderEg` int NOT NULL,  `idAGHeaderJr` int DEFAULT NULL,  `agNameJr` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,  `fName` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,  `lName` varchar(45) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,  `country` varchar(60) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin NOT NULL,  `dob` date DEFAULT NULL,  `age` int DEFAULT NULL,  `passportExp` date DEFAULT NULL,  `hotel` varchar(60) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin DEFAULT NULL,  `isPropHotel` tinyint(1) NOT NULL,  `isExempted` tinyint(1) DEFAULT NULL,  `returnDate` date DEFAULT NULL,  `remarks` varchar(256) CHARACTER SET utf8mb3 COLLATE utf8mb3_bin DEFAULT NULL,  `isRoundRip` tinyint(1) NOT NULL DEFAULT \"0\",  PRIMARY KEY (`idInListEntry`),  KEY `fk_inlistentry_idOpHeader_idx` (`idOpHeader`),  KEY `fk_inlistentry_idTicket_idx` (`idTicket`),  KEY `fk_inlistentry_idAGHeaderEg_idx` (`idAGHeaderEg`),  KEY `fk_inlistentry_idAGHeaderJr_idx` (`idAGHeaderJr`),  CONSTRAINT `fk_inlistentry_idAGHeaderEg` FOREIGN KEY (`idAGHeaderEg`) REFERENCES `agheader` (`idAGHeader`),  CONSTRAINT `fk_inlistentry_idAGHeaderJr` FOREIGN KEY (`idAGHeaderJr`) REFERENCES `agheader` (`idAGHeader`),  CONSTRAINT `fk_inlistentry_idOpHeader` FOREIGN KEY (`idOpHeader`) REFERENCES `opheader` (`idOpHeader`),  CONSTRAINT `fk_inlistentry_idTicket` FOREIGN KEY (`idTicket`) REFERENCES `ticket` (`idTicket`)) ENGINE=InnoDB AUTO_INCREMENT=34905 DEFAULT CHARSET=utf8mb3 COLLATE=utf8mb3_bin",
+    "primary": "idInListEntry"
+  },
+  "nodes": [
+    {
+      "id": "0",
+      "checked": false,
+      "flatten": false,
+      "field": {
+        "name": "idInListEntry",
+        "type": {
+          "typeName": "int",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "PRI",
+        "max": 0,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": false,
+        "description": ""
+      },
+      "children": []
+    },
+    {
+      "id": "1",
+      "checked": false,
+      "flatten": false,
+      "field": {
+        "name": "idOpHeader",
+        "type": {
+          "typeName": "int",
+          "fkTenant": "taba_amms_ops",
+          "fkEntity": "opheader",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "MUL",
+        "max": 0,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": false,
+        "description": ""
+      },
+      "children": [
+        {
+          "id": "0",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "idOpHeader",
+            "type": {
+              "typeName": "int",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "PRI",
+            "max": 0,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": false,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "1",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "idBoatHeader",
+            "type": {
+              "typeName": "int",
+              "fkTenant": "taba_amms_ops",
+              "fkEntity": "boatheader",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "MUL",
+            "max": 0,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": false,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "2",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "createdBy",
+            "type": {
+              "typeName": "int",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 0,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": false,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "3",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "opType",
+            "type": {
+              "typeName": "tinyint",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 0,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": false,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "4",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "createdAt",
+            "type": {
+              "typeName": "bigint",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 0,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": false,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "5",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "tsPlannedIn",
+            "type": {
+              "typeName": "bigint",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 0,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": false,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "6",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "tsAckIn",
+            "type": {
+              "typeName": "bigint",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 0,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": true,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "7",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "tsPlannedOut",
+            "type": {
+              "typeName": "bigint",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 0,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": false,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "8",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "tsAckOut",
+            "type": {
+              "typeName": "bigint",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 0,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": true,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "9",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "opStatus",
+            "type": {
+              "typeName": "tinyint",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 0,
+            "min": 0,
+            "default": "0",
+            "isUnique": false,
+            "isOptional": false,
+            "description": ""
+          },
+          "children": null
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "checked": false,
+      "flatten": false,
+      "field": {
+        "name": "idTicket",
+        "type": {
+          "typeName": "int",
+          "fkTenant": "taba_amms_ops",
+          "fkEntity": "ticket",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "MUL",
+        "max": 0,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": true,
+        "description": ""
+      },
+      "children": [
+        {
+          "id": "0",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "idTicket",
+            "type": {
+              "typeName": "int",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "PRI",
+            "max": 0,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": false,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "1",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "idPricelistEntry",
+            "type": {
+              "typeName": "int",
+              "fkTenant": "taba_amms_ops",
+              "fkEntity": "pricelistentry",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "MUL",
+            "max": 0,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": true,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "2",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "isRoundRip",
+            "type": {
+              "typeName": "tinyint",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 0,
+            "min": 0,
+            "default": "1",
+            "isUnique": false,
+            "isOptional": false,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "3",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "passportNo",
+            "type": {
+              "typeName": "varchar",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 20,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": false,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "4",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "ticketStatus",
+            "type": {
+              "typeName": "tinyint",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 0,
+            "min": 0,
+            "default": "0",
+            "isUnique": false,
+            "isOptional": false,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "5",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "trip1Dir",
+            "type": {
+              "typeName": "int",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 0,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": true,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "6",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "trip1TS",
+            "type": {
+              "typeName": "bigint",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 0,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": true,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "7",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "trip2Dir",
+            "type": {
+              "typeName": "int",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 0,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": true,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "8",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "trip2TS",
+            "type": {
+              "typeName": "bigint",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 0,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": true,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "9",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "isExempted",
+            "type": {
+              "typeName": "tinyint",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 0,
+            "min": 0,
+            "default": "0",
+            "isUnique": false,
+            "isOptional": false,
+            "description": ""
+          },
+          "children": null
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "checked": false,
+      "flatten": false,
+      "field": {
+        "name": "listSrn",
+        "type": {
+          "typeName": "int",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 0,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": true,
+        "description": ""
+      },
+      "children": []
+    },
+    {
+      "id": "4",
+      "checked": false,
+      "flatten": false,
+      "field": {
+        "name": "passportNo",
+        "type": {
+          "typeName": "varchar",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 20,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": true,
+        "description": ""
+      },
+      "children": []
+    },
+    {
+      "id": "5",
+      "checked": false,
+      "flatten": false,
+      "field": {
+        "name": "idAGHeaderEg",
+        "type": {
+          "typeName": "int",
+          "fkTenant": "taba_amms_ops",
+          "fkEntity": "agheader",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "MUL",
+        "max": 0,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": false,
+        "description": ""
+      },
+      "children": [
+        {
+          "id": "0",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "idAGHeader",
+            "type": {
+              "typeName": "int",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "PRI",
+            "max": 0,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": false,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "1",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "agCode",
+            "type": {
+              "typeName": "varchar",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "UNI",
+            "max": 45,
+            "min": 0,
+            "default": "",
+            "isUnique": true,
+            "isOptional": true,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "2",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "agName",
+            "type": {
+              "typeName": "varchar",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 45,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": false,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "3",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "agCountry",
+            "type": {
+              "typeName": "varchar",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 60,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": false,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "4",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "agCRN",
+            "type": {
+              "typeName": "varchar",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 45,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": true,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "5",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "idCustHeader",
+            "type": {
+              "typeName": "int",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 0,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": true,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "6",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "agKeywords",
+            "type": {
+              "typeName": "varchar",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 250,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": false,
+            "description": ""
+          },
+          "children": null
+        }
+      ]
+    },
+    {
+      "id": "6",
+      "checked": false,
+      "flatten": false,
+      "field": {
+        "name": "idAGHeaderJr",
+        "type": {
+          "typeName": "int",
+          "fkTenant": "taba_amms_ops",
+          "fkEntity": "agheader",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "MUL",
+        "max": 0,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": true,
+        "description": ""
+      },
+      "children": [
+        {
+          "id": "0",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "idAGHeader",
+            "type": {
+              "typeName": "int",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "PRI",
+            "max": 0,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": false,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "1",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "agCode",
+            "type": {
+              "typeName": "varchar",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "UNI",
+            "max": 45,
+            "min": 0,
+            "default": "",
+            "isUnique": true,
+            "isOptional": true,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "2",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "agName",
+            "type": {
+              "typeName": "varchar",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 45,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": false,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "3",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "agCountry",
+            "type": {
+              "typeName": "varchar",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 60,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": false,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "4",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "agCRN",
+            "type": {
+              "typeName": "varchar",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 45,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": true,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "5",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "idCustHeader",
+            "type": {
+              "typeName": "int",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 0,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": true,
+            "description": ""
+          },
+          "children": null
+        },
+        {
+          "id": "6",
+          "checked": false,
+          "flatten": false,
+          "field": {
+            "name": "agKeywords",
+            "type": {
+              "typeName": "varchar",
+              "fkTenant": "",
+              "fkEntity": "",
+              "decimalLength": 0,
+              "decimalPrecision": 0
+            },
+            "key": "",
+            "max": 250,
+            "min": 0,
+            "default": "",
+            "isUnique": false,
+            "isOptional": false,
+            "description": ""
+          },
+          "children": null
+        }
+      ]
+    },
+    {
+      "id": "7",
+      "checked": false,
+      "flatten": false,
+      "field": {
+        "name": "agNameJr",
+        "type": {
+          "typeName": "varchar",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 45,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": false,
+        "description": ""
+      },
+      "children": []
+    },
+    {
+      "id": "8",
+      "checked": false,
+      "flatten": false,
+      "field": {
+        "name": "fName",
+        "type": {
+          "typeName": "varchar",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 45,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": false,
+        "description": ""
+      },
+      "children": []
+    },
+    {
+      "id": "9",
+      "checked": false,
+      "flatten": false,
+      "field": {
+        "name": "lName",
+        "type": {
+          "typeName": "varchar",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 45,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": false,
+        "description": ""
+      },
+      "children": []
+    },
+    {
+      "id": "10",
+      "checked": false,
+      "flatten": false,
+      "field": {
+        "name": "country",
+        "type": {
+          "typeName": "varchar",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 60,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": false,
+        "description": ""
+      },
+      "children": []
+    },
+    {
+      "id": "11",
+      "checked": false,
+      "flatten": false,
+      "field": {
+        "name": "dob",
+        "type": {
+          "typeName": "date",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 0,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": true,
+        "description": ""
+      },
+      "children": []
+    },
+    {
+      "id": "12",
+      "checked": false,
+      "flatten": false,
+      "field": {
+        "name": "age",
+        "type": {
+          "typeName": "int",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 0,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": true,
+        "description": ""
+      },
+      "children": []
+    },
+    {
+      "id": "13",
+      "checked": false,
+      "flatten": false,
+      "field": {
+        "name": "passportExp",
+        "type": {
+          "typeName": "date",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 0,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": true,
+        "description": ""
+      },
+      "children": []
+    },
+    {
+      "id": "14",
+      "checked": false,
+      "flatten": false,
+      "field": {
+        "name": "hotel",
+        "type": {
+          "typeName": "varchar",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 60,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": true,
+        "description": ""
+      },
+      "children": []
+    },
+    {
+      "id": "15",
+      "checked": false,
+      "flatten": false,
+      "field": {
+        "name": "isPropHotel",
+        "type": {
+          "typeName": "tinyint",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 0,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": false,
+        "description": ""
+      },
+      "children": []
+    },
+    {
+      "id": "16",
+      "checked": false,
+      "flatten": false,
+      "field": {
+        "name": "isExempted",
+        "type": {
+          "typeName": "tinyint",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 0,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": true,
+        "description": ""
+      },
+      "children": []
+    },
+    {
+      "id": "17",
+      "checked": false,
+      "flatten": false,
+      "field": {
+        "name": "returnDate",
+        "type": {
+          "typeName": "date",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 0,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": true,
+        "description": ""
+      },
+      "children": []
+    },
+    {
+      "id": "18",
+      "checked": false,
+      "flatten": false,
+      "field": {
+        "name": "remarks",
+        "type": {
+          "typeName": "varchar",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 256,
+        "min": 0,
+        "default": "",
+        "isUnique": false,
+        "isOptional": true,
+        "description": ""
+      },
+      "children": []
+    },
+    {
+      "id": "19",
+      "checked": false,
+      "flatten": false,
+      "field": {
+        "name": "isRoundRip",
+        "type": {
+          "typeName": "tinyint",
+          "fkTenant": "",
+          "fkEntity": "",
+          "decimalLength": 0,
+          "decimalPrecision": 0
+        },
+        "key": "",
+        "max": 0,
+        "min": 0,
+        "default": "0",
+        "isUnique": false,
+        "isOptional": false,
+        "description": ""
+      },
+      "children": []
+    }
+  ]
+}

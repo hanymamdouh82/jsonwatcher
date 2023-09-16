@@ -1,0 +1,147 @@
+package main
+
+import (
+	"context"
+	"log"
+	"os"
+	"os/exec"
+	"time"
+
+	"github.com/fsnotify/fsnotify"
+)
+
+var (
+	lessCmd *exec.Cmd
+)
+
+func main() {
+	// Define the path to the JSON file you want to watch
+	filePath := "your_file.json"
+
+	// Create a new filesystem watcher
+	watcher, err := fsnotify.NewWatcher()
+	if err != nil {
+		log.Fatal(err)
+	}
+	defer watcher.Close()
+
+	// Start watching the JSON file for changes
+	err = watcher.Add(filePath)
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	// Create a context with cancellation
+	ctx, cancel := context.WithCancel(context.Background())
+	defer cancel()
+
+	// Create a channel to signal termination to the less goroutine
+	terminateLess := make(chan interface{})
+
+	// Create a channel to receive file change events
+	events := make(chan fsnotify.Event)
+
+	// Start a goroutine to listen for file change events
+	go func() {
+		for {
+			select {
+			case event, ok := <-watcher.Events:
+				if !ok {
+					return
+				}
+				// Check if the event is a modification of the JSON file
+				if event.Op&fsnotify.Write == fsnotify.Write {
+					events <- event
+				}
+			case err, ok := <-watcher.Errors:
+				if !ok {
+					return
+				}
+				log.Println("error:", err)
+			}
+		}
+	}()
+
+	// Start the less goroutine
+	go func() {
+		for {
+			// select {
+			// case <-terminateLess:
+			// 	// Terminate the less process
+			// 	// exec.Command("pkill", "less").Run()
+			// 	if lessCmd != nil {
+			// 		lessCmd.Process.Kill()
+			// 	}
+			// 	return
+			// }
+			<-terminateLess
+			if lessCmd != nil {
+				time.Sleep(1 * time.Second)
+				err := lessCmd.Process.Kill()
+				if err != nil {
+					panic(err)
+				}
+			}
+
+		}
+	}()
+
+	// Loop to handle file change events
+	for {
+		select {
+		case event, ok := <-watcher.Events:
+			if !ok {
+				return
+			}
+			if event.Op&fsnotify.Write == fsnotify.Write {
+				log.Println("File modified:", event.Name)
+
+				// Cancel the context to signal the less goroutine to terminate
+				cancel()
+
+				// Start a new less process with a new context
+				ctx, cancel = context.WithCancel(context.Background())
+				go startLess(ctx, filePath)
+			}
+		case err, ok := <-watcher.Errors:
+			if !ok {
+				return
+			}
+			log.Println("Error:", err)
+		}
+	}
+	// for {
+	// 	select {
+	// 	case event := <-events:
+	// 		log.Println("File modified:", event.Name)
+
+	// 		// Start a new less process
+	// 		time.Sleep(1 * time.Second)
+	// 		lessCmd := exec.Command("less", filePath)
+
+	// 		// Signal the less goroutine to terminate
+	// 		terminateLess <- lessCmd
+
+	// 		lessCmd.Stdout = os.Stdout
+	// 		lessCmd.Stdin = os.Stdin
+	// 		lessCmd.Stderr = os.Stderr
+	// 		err := lessCmd.Run()
+	// 		if err != nil {
+	// 			log.Println("Error running less:", err)
+	// 		}
+	// 	case <-time.After(1 * time.Second):
+	// 		// Polling interval to check for changes
+	// 	}
+	// }
+}
+
+func startLess(ctx context.Context, filePath string) {
+	lessCmd := exec.CommandContext(ctx, "less", filePath)
+	lessCmd.Stdout = os.Stdout
+	lessCmd.Stdin = os.Stdin
+	lessCmd.Stderr = os.Stderr
+	err := lessCmd.Run()
+	if err != nil {
+		log.Println("Error running less:", err)
+	}
+}

@@ -1,30 +1,43 @@
+// Copyright 2023 Hany Mamdouh. All rights reserved.
+// Use of this source code is governed by a MIT
+// license that can be found in the LICENSE file.
+
 package main
 
 import (
 	"context"
+	"flag"
 	"fmt"
 	"log"
 	"os"
 	"os/exec"
 	"os/signal"
 	"syscall"
+	"time"
 
 	"github.com/eiannone/keyboard"
 	"github.com/fsnotify/fsnotify"
 )
 
 var (
-	ctx      context.Context
-	cancel   context.CancelFunc
-	filePath string
+	ctx        context.Context
+	cancel     context.CancelFunc
+	filePath   string
+	predefFile string
 )
 
 func init() {
 	// Define the path to the JSON file you want to watch
-	filePath = "your_file.json"
+	predefFile = "your_file.json"
 }
 
 func main() {
+	// Set file to watch
+	flagFile := flag.String("f", predefFile, "file name to watch. Include path if not in current directory.")
+	flag.Parse()
+	filePath = *flagFile
+	fmt.Printf("Watching: %s\n", filePath)
+
 	// Handle Ctrl+C to gracefully exit the application
 	sigCh := make(chan os.Signal, 1)
 	signal.Notify(sigCh, syscall.SIGINT)
@@ -69,7 +82,8 @@ func main() {
 				return
 			}
 			if event.Op&fsnotify.Write == fsnotify.Write {
-				fmt.Println("File modified:")
+				fmt.Printf("Last File modified: %s\n", time.Now())
+				fmt.Println("Press: 'q' to quit")
 				// Cancel the context to signal the less goroutine to terminate
 				cancel()
 
@@ -86,15 +100,17 @@ func main() {
 	}
 }
 
+// Watch for ctrl+c to gracefully terminate
 func watchCtrlC(sigCh chan os.Signal) {
 	<-sigCh
 	log.Println("Ctrl+C detected. Exiting...")
 	// Cancel the context to signal the less goroutine to terminate
 	cancel()
-	exec.Command("stty", "sane").Run()
+	exec.Command("reset").Run()
 	os.Exit(0)
 }
 
+// Start new `less` instance for the watched file.
 func startLess(ctx context.Context, filePath string) {
 	lessCmd := exec.CommandContext(ctx, "less", filePath)
 	lessCmd.Stdout = os.Stdout
@@ -106,6 +122,7 @@ func startLess(ctx context.Context, filePath string) {
 	}
 }
 
+// File watcher infinite loop.
 func fileWatcher(watcher *fsnotify.Watcher, events chan fsnotify.Event) {
 	for {
 		select {
@@ -126,6 +143,7 @@ func fileWatcher(watcher *fsnotify.Watcher, events chan fsnotify.Event) {
 	}
 }
 
+// Watch for `q` key to clean exit.
 func watchForKeyExit(cancel context.CancelFunc) {
 	for {
 		char, _, err := keyboard.GetKey()
